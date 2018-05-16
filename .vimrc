@@ -62,6 +62,15 @@ if has('gui_running')
 " Highlight extra whitespace
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+" tab settings for shell 
+au BufNewFile,BufRead *.sh
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab | 
+    \ set autoindent |
+    \ set fileformat=unix
+
 " tab settings for python
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -72,10 +81,14 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 " tab settings for other filetypes
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js, *.html, *.css, *.yml, *.json
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
+    \ set expandtab | 
+    \ set autoindent |
+    \ set fileformat=unix
+
 
 " highlight characters after column 80
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
