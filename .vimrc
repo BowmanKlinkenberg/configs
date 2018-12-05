@@ -20,6 +20,8 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'fatih/vim-go'
+
 
 "python with virtualenv support
 py << EOF
@@ -37,6 +39,27 @@ filetype plugin indent on    " required
 
 " Highlight search results
 set hlsearch
+
+"""""""" OSX ONLY
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+if has("gui_running")
+ let s:uname = system("uname")
+ if s:uname == "Darwin\n"
+ set guifont=Inconsolata\ for\ Powerline:h15
+ endif
+endif
+
+"""""" END OSX
+
+"" SET UNICODE
+set encoding=utf-8
 
 " UTF8 encoding
 set encoding=utf-8
