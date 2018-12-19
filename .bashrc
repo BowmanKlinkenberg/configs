@@ -7,3 +7,6 @@ export PS1="\u@\H:\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\]\$ "
 export CLICOLOR=1
 # Set up direnv integration
 eval "$(direnv hook bash)"
+
+# aliases
+alias ll='ls -al'
