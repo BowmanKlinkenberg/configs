@@ -13,15 +13,16 @@ Plugin 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
-Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
 Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'fatih/vim-go'
 Plugin 'terryma/vim-smooth-scroll'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,6 +31,12 @@ filetype plugin indent on    " required
 " Open NERDTree when opening a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" NERDTree preferences
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+map <silent> <C-n> :NERDTreeToggle<CR>
 
 " Smoothscroll settings
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
@@ -77,19 +84,11 @@ set encoding=utf-8
 set clipboard=unnamed
 
 " Enable line numbering
-set nu
+set number relativenumber
 
 " Python syntax highlighting
 let python_highlight_all=1
 syntax on
-
-" Color schemes
-if has('gui_running')
-	  set background=dark
-	    colorscheme solarized
-    else
-	      colorscheme zenburn
-      endif
 
 " Highlight extra whitespace
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -114,9 +113,9 @@ au BufNewFile,BufRead *.py
 
 " tab settings for other filetypes
 au BufNewFile,BufRead *.js, *.html, *.css, *.yml, *.json, *.go
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4
     \ set expandtab | 
     \ set autoindent |
     \ set fileformat=unix
