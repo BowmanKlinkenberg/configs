@@ -14,12 +14,14 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 " Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
+" Plugin 'fatih/vim-go'
+" Plugin 'vim-syntastic/syntastic'
+" Plugin 'nvie/vim-flake8'
+Plugin 'psf/black'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'fatih/vim-go'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-surround'
@@ -64,14 +66,6 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
-
-if has("gui_running")
- let s:uname = system("uname")
- if s:uname == "Darwin\n"
- set guifont=Inconsolata\ for\ Powerline:h15
- endif
-endif
-
 """""" END OSX
 
 "" SET UNICODE
@@ -87,7 +81,7 @@ set clipboard=unnamed
 set number relativenumber
 
 " Python syntax highlighting
-let python_highlight_all=1
+" let python_highlight_all=1
 syntax on
 
 " Highlight extra whitespace
